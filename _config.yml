@@ -3,16 +3,16 @@ title: Welcome to my blog website!
 SEOTitle: 林铭玺的博客 | Lmx Blog
 header-img: img/post-bg-main-Ronaldo2.jpg
 email: lmxbeijing01@163.com
-description: "Every failure is leading towards success."
-keyword: "Lmx, Lmx Blog, 林铭玺的博客, linmingxi, 林铭玺, Android, Java，C/C++"
+description: "Stay hungry,stay foolish."
+keyword: "Lmx,Lmx01,Lmx Blog, 林铭玺的博客, linmingxi, 林铭玺, Android, Java，C/C++"
 url: "http://lmx01.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/lmx01/lmx01.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Goals determine what you going to be!"
-sidebar-avatar: /img/avatar-m.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "Happy Life!"
+sidebar-avatar: /img/avatar-naruto.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
