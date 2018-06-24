@@ -15,7 +15,6 @@ sidebar-about-description: "Happy Life!"
 sidebar-avatar: /img/avatar-naruto.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
-
 # SNS settings
 RSS: false
 weibo_username:     linmx01
