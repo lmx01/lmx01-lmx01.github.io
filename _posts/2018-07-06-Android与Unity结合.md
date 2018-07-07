@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:    Android与Unity集成 
+title:    Android与Unity的简单集成 
 subtitle:   Android制作原生页面,Unity渲染3D界面
 date:       2018-07-06
 author:    Lmx 
@@ -15,7 +15,7 @@ tags:
 # 一、介绍
 目前，在市场上，Android SDK一般用于制作平面效果的app，而Unity一般用于制作一些具有3D 物体的app，如游戏领域里面；但是，有一种需求就是希望在Android制作
 的平面app里面，渲染一些高级特效，如微博/支付宝里面制作的AR特效，个人觉得不适合使用openGL执行操作渲染，因为openGL代码过于底层，不适合制作太多的高级
-特效，推测使用的是unity。所以，本文参考网上一些资料，总结Android SDK直接调用Unity的方法。
+特效，推测这些使用的是unity。所以，本文参考网上一些资料，总结Android SDK直接调用Unity的方法。
 #  二、Unity导出Android Studio工程
 （待定）
 # 三、Android Studio使用Unity导出的工程
@@ -30,7 +30,7 @@ tags:
     android:value="true" />
 ```
 ## 2. UnityPlayer  mUnityPlayer
-在Android里面，把Unity当做一个视图View，在使用的时候，需要在当前Activity类添加如下让当前Activity覆写如下方法：
+在Android里面，把Unity当做一个视图View，在使用的时候，需要在当前Activity类覆写如下方法：
 ```
 public UnityPlayer mUnityPlayer = null; //变量名字不能变
 
