@@ -19,7 +19,7 @@ tags:
 #  二、Unity导出Android Studio工程
 （待定）
 # 三、Android Studio使用Unity导出的工程
-## 1. 在AndroidMainifest.xml中，给Activity添加如下属性：
+## 1. 在AndroidMainifest.xml中，给Activity添加如下属性：
 ```
 <meta-data
     android:name="unityplayer.UnityActivity"
@@ -109,7 +109,7 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 ```
 
 - Android实现Unity所需的方法：
-    只需在当前类中，将方法定义为public即可。
+    只需在当前类中，将方法定义为public即可。
     Unity中使用C#脚本调用：
 ```
 using (AndroidJavaClass cls_UnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
@@ -122,9 +122,9 @@ using (AndroidJavaClass cls_UnityPlayer = new AndroidJavaClass("com.unity3d.play
 }
 ```
 # 四、使用陷阱
-## 1. Unity退出时，杀死整个app
+## 1. Unity退出时，杀死整个app
 - 原因：
-    查看Unity的导出包中，发现mUnityPlayer.quit()函数里面调用了this.kill()，直接杀死了整个进程。之所以这么做，是因为在Unity中，整个app其实只有一个Activity，Unity中的场景变化都只是进行View切换，所以当用户关闭Activity时，就认为app结束，杀死整个进程；
+    查看Unity的导出包中，发现mUnityPlayer.quit()函数里面调用了this.kill()，直接杀死了整个进程。之所以这么做，是因为在Unity中，整个app其实只有一个Activity，Unity中的场景变化都只是进行View切换，所以当用户关闭Activity时，就认为app结束，杀死整个进程；
 ```
 public void quit() {
     ...
