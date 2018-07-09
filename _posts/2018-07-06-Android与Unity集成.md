@@ -30,7 +30,7 @@ tags:
     android:value="true" />
 ```
 ## 2. UnityPlayer  mUnityPlayer
-在Android里面，把Unity当做一个视图View，在使用的时候，需要在当前Activity类覆写如下方法：
+在Android里面，把Unity当做一个视图View，在使用的时候，需要在当前Activity类覆写如下方法：
 ```
 public UnityPlayer mUnityPlayer = null; //变量名字不能变
 
@@ -145,10 +145,10 @@ public class MyUnityPlayer extends UnityPlayer {
     }
 }
 ```
-**理论上，重载该方法后，quit方法将不会调用killProcess，但实际使用时，程序比较奇怪，偶尔还是会杀死进程,目前没有解决。如果你已经解决了，还麻烦告诉我下，为啥，谢谢！**
+**理论上，重载该方法后，quit方法将不会调用killProcess，但实际使用时，程序比较奇怪，偶尔还是会杀死进程,目前没有解决。如果你已经解决了，还麻烦告诉我下，为啥，谢谢！**
     2. 将Unity所在的Activity当作一个新的进程
 给当前Activity添加如下属性：
 ```
-android:process="自己取的进程名，一般格式是包路径+类名"
+android:process="自己取的进程名，一般格式是包路径+类名"
 ```
 
