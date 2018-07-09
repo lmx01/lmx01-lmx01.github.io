@@ -11,7 +11,7 @@ tags:
     - Uniy
 ---
 # 参考：
-1. [Medium](https://medium.com/@ashoni/android-unity-integration-47756b9d53bd)
+1. [Medium:Android+Unity Integration](https://medium.com/@ashoni/android-unity-integration-47756b9d53bd)
 # 一、介绍
 目前，在市场上，Android SDK一般用于制作平面效果的app，而Unity一般用于制作一些具有3D 物体的app，如游戏领域里面；但是，有一种需求就是希望在Android制作
 的平面app里面，渲染一些高级特效，如微博/支付宝里面制作的AR特效，个人觉得不适合使用openGL执行操作渲染，因为openGL代码过于底层，不适合制作太多的高级
