@@ -136,8 +136,8 @@ protected void kill() {
     Process.killProcess(Process.myPid());
 }
 ```
-- 解决方法：
-    1. 重载kill方法：
+- 解决方法有如下两种：
+    - 重载kill方法：
 ```
 public class MyUnityPlayer extends UnityPlayer {
     @Override
@@ -146,7 +146,8 @@ public class MyUnityPlayer extends UnityPlayer {
 }
 ```
 **理论上，重载该方法后，quit方法将不会调用killProcess，但实际使用时，程序比较奇怪，偶尔还是会杀死进程,目前没有解决。如果你已经解决了，还麻烦告诉我下，为啥，谢谢！**
-    2. 将Unity所在的Activity当作一个新的进程
+
+    - 将Unity所在的Activity当作一个新的进程
 给当前Activity添加如下属性：
 ```
 android:process="自己取的进程名，一般格式是包路径+类名"
