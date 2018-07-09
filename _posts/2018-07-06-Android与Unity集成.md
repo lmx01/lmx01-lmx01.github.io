@@ -105,7 +105,7 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
     * 第二个参数是函数名
     * 第三个参数是传给函数的参数，目前参数只有这个String接口
     */
-    UnityPlayer.UnitySendMessage(String,String,String);
+    UnityPlayer.UnitySendMessage(String,String,String);
 ```
 
 - Android实现Unity所需的方法：
