@@ -123,7 +123,7 @@ using (AndroidJavaClass cls_UnityPlayer = new AndroidJavaClass("com.unity3d.play
 ```
 # 四、使用陷阱
 ## 1. Unity退出时，杀死整个app
-- 原因：
+### 原因：
     查看Unity的导出包中，发现mUnityPlayer.quit()函数里面调用了this.kill()，直接杀死了整个进程。之所以这么做，是因为在Unity中，整个app其实只有一个Activity，Unity中的场景变化都只是进行View切换，所以当用户关闭Activity时，就认为app结束，杀死整个进程；
 ```
 public void quit() {
@@ -136,8 +136,8 @@ protected void kill() {
     Process.killProcess(Process.myPid());
 }
 ```
-- 解决方法有如下两种：
-    - 重载kill方法：
+### 解决方法有如下两种：
+#### 重载kill方法：
 ```
 public class MyUnityPlayer extends UnityPlayer {
     @Override
@@ -147,7 +147,7 @@ public class MyUnityPlayer extends UnityPlayer {
 ```
 **理论上，重载该方法后，quit方法将不会调用killProcess，但实际使用时，程序比较奇怪，偶尔还是会杀死进程,目前没有解决。如果你已经解决了，还麻烦告诉我下，为啥，谢谢！**
 
-    - 将Unity所在的Activity当作一个新的进程
+#### 将Unity所在的Activity当作一个新的进程
 给当前Activity添加如下属性：
 ```
 android:process="自己取的进程名，一般格式是包路径+类名"
