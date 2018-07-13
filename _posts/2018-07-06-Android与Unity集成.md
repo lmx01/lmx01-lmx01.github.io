@@ -19,7 +19,7 @@ tags:
 #  二、Unity导出Android Studio工程
 （待定）
 # 三、Android Studio使用Unity导出的工程
-## 1. 在AndroidMainifest.xml中，给Activity添加如下属性：
+## 1. 在AndroidMainifest.xml中，给Activity添加如下属性：
 ```
 <meta-data
     android:name="unityplayer.UnityActivity"
@@ -30,7 +30,7 @@ tags:
     android:value="true" />
 ```
 ## 2. UnityPlayer  mUnityPlayer
-在Android里面，把Unity当做一个视图View，在使用的时候，需要在当前Activity类覆写如下方法：
+在Android里面，把Unity当做一个视图View，在使用的时候，需要在当前Activity类覆写如下方法：
 ```
 public UnityPlayer mUnityPlayer = null; //变量名字不能变
 
@@ -105,11 +105,11 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
     * 第二个参数是函数名
     * 第三个参数是传给函数的参数，目前参数只有这个String接口
     */
-    UnityPlayer.UnitySendMessage(String,String,String);
+    UnityPlayer.UnitySendMessage(String,String,String);
 ```
 
 - Android实现Unity所需的方法：
-    只需在当前类中，将方法定义为public即可。
+    只需在当前类中，将方法定义为public即可。
     Unity中使用C#脚本调用：
 ```
 using (AndroidJavaClass cls_UnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
@@ -122,9 +122,9 @@ using (AndroidJavaClass cls_UnityPlayer = new AndroidJavaClass("com.unity3d.play
 }
 ```
 # 四、使用陷阱
-## 1. Unity退出时，杀死整个app
-- 原因：
-    查看Unity的导出包中，发现mUnityPlayer.quit()函数里面调用了this.kill()，直接杀死了整个进程。之所以这么做，是因为在Unity中，整个app其实只有一个Activity，Unity中的场景变化都只是进行View切换，所以当用户关闭Activity时，就认为app结束，杀死整个进程；
+## 1. Unity退出时，杀死整个app
+### 原因：
+    查看Unity的导出包中，发现mUnityPlayer.quit()函数里面调用了this.kill()，直接杀死了整个进程。之所以这么做，是因为在Unity中，整个app其实只有一个Activity，Unity中的场景变化都只是进行View切换，所以当用户关闭Activity时，就认为app结束，杀死整个进程；
 ```
 public void quit() {
     ...
@@ -136,8 +136,8 @@ protected void kill() {
     Process.killProcess(Process.myPid());
 }
 ```
-- 解决方法：
-    1. 重载kill方法：
+### 解决方法有如下两种：
+#### 1. 重载kill方法：
 ```
 public class MyUnityPlayer extends UnityPlayer {
     @Override
@@ -145,10 +145,11 @@ public class MyUnityPlayer extends UnityPlayer {
     }
 }
 ```
-**理论上，重载该方法后，quit方法将不会调用killProcess，但实际使用时，程序比较奇怪，偶尔还是会杀死进程,目前没有解决。如果你已经解决了，还麻烦告诉我下，为啥，谢谢！**
-    2. 将Unity所在的Activity当作一个新的进程
+**理论上，重载该方法后，quit方法将不会调用killProcess，但实际使用时，程序比较奇怪，偶尔还是会杀死进程,目前没有解决。如果你已经解决了，还麻烦告诉我下，为啥，谢谢！**
+
+#### 2. 将Unity所在的Activity当作一个新的进程
 给当前Activity添加如下属性：
 ```
-android:process="自己取的进程名，一般格式是包路径+类名"
+android:process="自己取的进程名，一般格式是包路径+类名"
 ```
 
