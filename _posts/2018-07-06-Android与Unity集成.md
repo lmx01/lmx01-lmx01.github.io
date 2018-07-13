@@ -8,7 +8,7 @@ header-img:
 catalog: true
 tags: 
     - Android
-    - Uniy
+    - Unity
 ---
 # 参考：
 1. [Medium:Android+Unity Integration](https://medium.com/@ashoni/android-unity-integration-47756b9d53bd)

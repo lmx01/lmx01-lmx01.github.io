@@ -27,6 +27,6 @@ tags:
 - 启动：再编写一个专门用于启动Unity场景的Fragment。同样在该fragment中，实现Unity从resume到pause的过程。在resume后，使用UnityPlayer.UnitySendMessage方法唤醒具体的场景，再退出时，同样可使用UnityPlayer.UnitySendMessage方法,通知场景结束,然后关闭当前Fragment即可
 # 异常解决
 - 切换Unity时，横屏与竖屏异常
-在Unity视图中，一般是使用横屏，而Android原生的界面一般是使用纵屏。在实际使用中，因为Unity在切换横屏时，偶尔会出现进入时，Unity视图被切掉一部分，而不能全屏的问题，我的解决方案时在启动Unity所在的Fragment时，提前先将Fragment切换为横屏，退出时，切换为纵屏解决。
+在Unity视图中，一般是使用横屏，而Android原生的界面一般是使用纵屏。在实际使用中，因为Unity在切换横屏时，偶尔会出现进入时，Unity视图被切掉一部分，而不能全屏的问题，我的解决方案时在启动Unity所在的Fragment时，提前先将Fragment切换为横屏，退出时，切换为纵屏解决。（在我的使用横纵屏切换时，Unity中场景的横纵屏不由Android这边控制，Unity内部还需要自己进行切换，目前不知为啥？)
 - 全屏与非全屏异常
 解决方案与上面一样，都是在进入Unity前，先更改所在的父容器Fragment的状态即可解决。
